@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Problem 4 - Largest palindrome product</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <script>
+            function doPalindrome() {
+                var x,y,product,max = 0;
+                
+                for(x = 100;x<=999;x++)
+                {
+                    for(y = 100;y<=999;y++)
+                    {
+                        product = x * y;
+                        if(isPalindrome(product)) 
+                        {
+                            if( max < product )
+                            {
+                                max = product;
+                                document.getElementById("demo").innerHTML += 
+                                        x + '*' + y + '=' + product + "<br />";
+                            }
+                        }
+                    }
+                }
+                
+            }
+            function isPalindrome(i) {
+                return i.toString() == i.toString().split("").reverse().join("");
+            }
+        </script>
+        <p> Problem: Find the largest palindrome made from the product of two 3-digit numbers.</p>
+        <p id ="demo"> Solution : <br />  </p>
+        <button onclick="doPalindrome()">Calculate</button>
+    </body>
+</html>
